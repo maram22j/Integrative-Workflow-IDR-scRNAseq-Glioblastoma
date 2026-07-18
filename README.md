@@ -36,6 +36,7 @@ This project integrates transcriptomic and structural information to identify di
 - Integrate IDR information with gene expression
 
 ## Repository Organization
+```text
 scRNAseq-IDR-Glioblastoma
 │
 ├── data
