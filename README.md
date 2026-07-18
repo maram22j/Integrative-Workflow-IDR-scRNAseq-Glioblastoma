@@ -9,7 +9,7 @@ This repository presents an end-to-end computational workflow for integrating si
 
 The workflow combines single-cell RNA sequencing (scRNA-seq), protein structural annotation, statistical analyses, and functional enrichment to investigate the contribution of intrinsically disordered proteins (IDPs) and intrinsically disordered regions (IDRs) to glioblastoma biology.
 
----
+
 ## Biological Motivation
 
 Glioblastoma (GBM) is the most aggressive primary brain tumor in adults and exhibits remarkable cellular heterogeneity.
