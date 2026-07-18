@@ -64,4 +64,15 @@ scRNAseq-IDR-Glioblastoma
 ├── images
 ├── README.md
 └── LICENSE
+|
 ```
+## Data
+
+| Item | Description |
+|------|-------------|
+| Dataset | GSE131928 |
+| Disease | Glioblastoma |
+| Species | Homo sapiens |
+| Platform | Smart-seq2 |
+| Data Type | Single-cell RNA sequencing of adult and paediatric IDH-wildtype Glioblastomas|
+
