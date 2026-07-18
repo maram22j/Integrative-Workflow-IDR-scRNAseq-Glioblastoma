@@ -49,17 +49,30 @@ scRNAseq-IDR-Glioblastoma
 │   ├── 03_Gene_filtration.R
 │   ├── 04_Conversion_adult_to_IDR_percentage.R
 │   ├── 05_Conversion_pediatric_to_IDR_percentage.R
-│   ├── 06_mobidb_annotation.R
-│   ├── 07_expression_integration.R
-│   ├── 08_statistical_analysis.R
-│   ├── 09_functional_enrichment.R
-│   └── 10_visualization.R
+│   ├── 06_
+│   ├── 07_
+│   ├── 08_
+│   ├── 09_
+│   └── 10_
 │
 ├── results
-│   ├── figures
-│   ├── tables
-│   └── supplementary
-│
+│   ├── single_cell_analysis
+│   │   ├── quality_control/
+│   │   ├── variable_features/
+│   │   ├── PCA/
+│   │   ├── UMAP/
+│   │   ├── tSNE/
+│   │   └── malignant_cells/
+│   ├── differential_expression
+│   │   ├── adult_vs_pediatric.csv
+│   ├── gene_filtration
+│   │   ├── adult_filtered_genes.csv
+│   │   └── pediatric_filtered_genes.csv
+|   ├── IDR_annotation
+│   │   ├── IDR_protein_for_adult.csv
+|   |   ├── IDR_protein_for_pediatric.csv
+|   └── figures
+│       ├── workflows
 ├── docs
 ├── images
 ├── README.md
