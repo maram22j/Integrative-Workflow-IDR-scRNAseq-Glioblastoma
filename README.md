@@ -25,3 +25,42 @@ Intrinsically disordered proteins (IDPs) participate in
 - cancer progression
 
 This project integrates transcriptomic and structural information to identify disorder-associated molecular signatures in malignant glioblastoma cells.
+
+## Objectives
+
+- Perform preprocessing and quality control of scRNA-seq data
+- Identify malignant glioblastoma cells
+- Map expressed genes to UniProt proteins
+- Retrieve IDR annotations from MobiDB
+- Quantify protein disorder characteristics
+- Integrate IDR information with gene expression
+
+## Repository Organization
+scRNAseq-IDR-Glioblastoma
+│
+├── data
+│   ├── processed
+│   └── metadata
+│
+├── scripts
+│   ├── 01_Single_cell_RNA_seq_with_CNA_filtration.R
+│   ├── 02_Differential_expression_analysis.R
+│   ├── 03_Gene_filtration.R
+│   ├── 04_Conversion_adult_to_IDR_percentage.R
+│   ├── 05_Conversion_pediatric_to_IDR_percentage.R
+│   ├── 06_mobidb_annotation.R
+│   ├── 07_expression_integration.R
+│   ├── 08_statistical_analysis.R
+│   ├── 09_functional_enrichment.R
+│   └── 10_visualization.R
+│
+├── results
+│   ├── figures
+│   ├── tables
+│   └── supplementary
+│
+├── docs
+├── images
+├── README.md
+└── LICENSE
+```
