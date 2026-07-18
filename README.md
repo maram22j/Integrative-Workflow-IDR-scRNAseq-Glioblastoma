@@ -88,4 +88,44 @@ scRNAseq-IDR-Glioblastoma
 | Species | Homo sapiens |
 | Platform | Smart-seq2 |
 | Data Type | Single-cell RNA sequencing of adult and paediatric IDH-wildtype Glioblastomas|
+## Methodology
+
+### 1. Data preprocessing
+
+- Import expression matrix
+- Metadata integration
+- Quality control
+- Cell filtering using CNA method and malignant cell identification
+- Feature selection
+- Scaling
+
+### 2.Downstream analysis
+- Linear Dimensionality Reduction (PCA)
+- Cell Clustering
+- Cell annotation
+- Non-linear Dimensionality Reduction (UMAP/ tSNE)
+- Differential expression analysis
+
+### 3. Gene filtration
+
+Gene filtration based on age_group feature (adult and pediatric).
+
+### 4. Protein Annotation
+
+Gene symbols are converted into UniProt identifiers.
+
+Protein characteristics include
+
+- protein length
+
+### 5. Intrinsic Disorder Annotation
+
+Protein disorder annotations are retrieved from MobiDB.
+
+For each protein:
+- number of IDRs
+- total IDR length
+- percentage disorder
+
+
 
