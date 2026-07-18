@@ -9,7 +9,6 @@ This repository presents an end-to-end computational workflow for integrating si
 
 The workflow combines single-cell RNA sequencing (scRNA-seq), protein structural annotation, statistical analyses, and functional enrichment to investigate the contribution of intrinsically disordered proteins (IDPs) and intrinsically disordered regions (IDRs) to glioblastoma biology.
 
-The pipeline is fully reproducible and modular, enabling adaptation to other single-cell datasets and disease models.
 ---
 ## Biological Motivation
 
