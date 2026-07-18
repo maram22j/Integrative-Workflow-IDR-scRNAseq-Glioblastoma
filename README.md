@@ -127,5 +127,49 @@ For each protein:
 - total IDR length
 - percentage disorder
 
+## Software
 
+| Package | Purpose |
+|----------|---------|
+| Seurat | Single-cell analysis |
+| SingleR | cell annotation |
+| dplyr | Data manipulation |
+| biomaRt | Gene annotation |
+| UniProt.ws | Protein annotation |
+| protti | Protein utilities |
+| ggplot2 | Visualization |
+
+## Outputs
+
+The workflow produces
+
+- Quality control graphs
+- UMAP projections
+- Cluster annotations
+- Gene filtration tables
+- UniProt annotation tables
+- IDR annotation tables
+## Citation
+
+If you use this workflow in your research, please cite this repository and the original GSE131928 dataset.
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Contact
+
+**Maram Nhaili**
+
+Industrial Biology Engineering Student
+
+National Institute of Applied Science and Technology (INSAT)
+
+Tunisia
+
+Email: maram.nhaili@insat.ucar.tn
 
