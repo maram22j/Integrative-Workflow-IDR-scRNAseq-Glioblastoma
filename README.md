@@ -131,8 +131,11 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/maram22j/scRNAseq-IDR-Glioblastoma.git
+```
+```bash
 cd scRNAseq-IDR-Glioblastoma
 ```
+
 ## Software
 
 | Package | Purpose |
