@@ -64,27 +64,49 @@ scRNAseq-IDR-Glioblastoma
 │
 ├── results
 │   ├── single_cell_analysis
-│   │   ├── quality_control
-│   │   ├── variable_features
-│   │   ├── PCA
-│   │   ├── UMAP
-│   │   ├── tSNE
-│   │   └── malignant_cells
+│   │   ├── malignant_cells
+│   │   │   ├── quality_control
+│   │   │   ├── variable_features
+│   │   │   ├── PCA
+│   │   │   ├── UMAP
+│   │   │   └── tSNE
+│   │   │
+│   │   └── normal_cells
+│   │       ├── quality_control
+│   │       ├── variable_features
+│   │       ├── PCA
+│   │       ├── UMAP
+│   │       └── tSNE
+│   │
 │   ├── differential_expression
-│   │   ├── adult_vs_pediatric.csv
+│   │   ├── malignant_cells
+│   │   │   └── adult_vs_pediatric.csv
+│   │   └── normal_cells
+│   │       └── adult_vs_pediatric.csv
+│   │
 │   ├── gene_filtration
-│   │   ├── adult_filtered_genes.csv
-│   │   └── pediatric_filtered_genes.csv
-|   ├── IDR_annotation
-│   │   ├── IDR_protein_for_adult.csv
-|   |   ├── IDR_protein_for_pediatric.csv
-|   └── figures
-│       ├── workflows
+│   │   ├── malignant_cells
+│   │   │   ├── adult_filtered_genes.csv
+│   │   │   └── pediatric_filtered_genes.csv
+│   │   └── normal_cells
+│   │       ├── adult_filtered_genes.csv
+│   │       └── pediatric_filtered_genes.csv
+│   │
+│   ├── IDR_annotation
+│   │   ├── malignant_cells
+│   │   │   ├── IDR_protein_for_adult.csv
+│   │   │   └── IDR_protein_for_pediatric.csv
+│   │   └── normal_cells
+│   │       ├── IDR_protein_for_adult.csv
+│   │       └── IDR_protein_for_pediatric.csv
+│   │
+│   └── figures
+│       └── workflows
+│
 ├── docs
 ├── images
 ├── README.md
 └── LICENSE
-|
 ```
 ## Data
 
