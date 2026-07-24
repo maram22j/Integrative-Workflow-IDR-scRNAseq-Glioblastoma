@@ -10,11 +10,6 @@ data<-read.csv("gene filtration/filtred_genes_pediatric.csv",header = T,sep = ",
 write.table( data$gene, file = "IDR conversion/DE_genes_in_pediatric_V2.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
 genes_pediatric<-readLines("IDR conversion/DE_genes_in_pediatric_V2.txt")
 #Selecting an Ensembl BioMart database and dataset
-"""mart <- useEnsembl(
-  biomart = "genes",
-  dataset = "hsapiens_gene_ensembl",
-  version = 109
-)"""
 mart <- useMart(
   biomart = "ENSEMBL_MART_ENSEMBL",
   dataset = "hsapiens_gene_ensembl",
