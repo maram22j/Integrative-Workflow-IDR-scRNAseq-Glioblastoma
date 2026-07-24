@@ -7,7 +7,6 @@ library(SingleR)
 library(celldex)
 library(SingleCellExperiment)
 library(data.table)
-BiocManager::install("EnsDb.Hsapiens.v86")
 library(EnsDb.Hsapiens.v86)
 #loading expression matrix 
 data<-read.delim("C:/Users/maram/Desktop/intital 1/Internships/Centre Biotechnologique de Sfax/codes/single cell/GSE131928_RAW/GSM3828672_Smartseq2_GBM_IDHwt_processed_TPM.tsv/GSM3828672_Smartseq2_GBM_IDHwt_processed_TPM.tsv",header=T)
