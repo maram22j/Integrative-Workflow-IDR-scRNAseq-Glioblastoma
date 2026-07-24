@@ -1,5 +1,4 @@
 library(HGNChelper)
-library(httr)
 library(Biostrings)
 library(UniProt.ws)
 library(biomaRt)
@@ -11,11 +10,6 @@ data<-read.csv("gene filtration/filtred_genes_adult.csv",header = T,sep = ",",ro
 write.table(data$gene, file = "IDR conversion/DE_genes_in_adult_v2.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
 genes_adult<-readLines("DE_genes_in_adult_v2.txt")
 #Selecting an Ensembl BioMart database and dataset
-"""mart <- useEnsembl(
-  biomart = "genes",
-  dataset = "hsapiens_gene_ensembl",
-  mirror = useat
-)"""
 mart <- useMart(
   biomart = "ENSEMBL_MART_ENSEMBL",
   dataset = "hsapiens_gene_ensembl",
