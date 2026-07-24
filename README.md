@@ -132,11 +132,17 @@ For each protein:
 |----------|---------|
 | Seurat | Single-cell analysis |
 | SingleR | cell annotation |
+| EnsDb.Hsapiens.v86 | Provides human gene annotations. |
+| patchwork | Combines ggplot2 plots. |
+| SingleCellExperiment | Stores single-cell RNA-seq data. |
+| celldex | Provides reference datasets for cell annotation. |
+| EnhancedVolcano | Generates volcano plots for DE analysis. |
 | dplyr | Data manipulation |
 | biomaRt | Gene annotation |
 | UniProt.ws | Protein annotation |
 | protti | Protein utilities |
 | ggplot2 | Visualization |
+| HGNChelper | Corrects and updates gene symbols. |
 
 ## Outputs
 
