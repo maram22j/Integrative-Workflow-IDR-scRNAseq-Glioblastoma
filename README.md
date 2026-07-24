@@ -125,7 +125,9 @@ For each protein:
 - number of IDRs
 - total IDR length
 - percentage disorder
-
+## Installation 
+git clone https://github.com/maram22j/scRNAseq-IDR-Glioblastoma.git
+cd scRNAseq-IDR-Glioblastoma
 ## Software
 
 | Package | Purpose |
