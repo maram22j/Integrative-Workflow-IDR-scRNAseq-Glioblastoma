@@ -28,12 +28,11 @@ This project integrates transcriptomic and structural information to identify di
 
 ## Objectives
 
-- Perform preprocessing and quality control of scRNA-seq data
-- Identify malignant glioblastoma cells
-- Map expressed genes to UniProt proteins
-- Retrieve IDR annotations from MobiDB
-- Quantify protein disorder characteristics
-- Integrate IDR information with gene expression
+- Identify proteins containing intrinsically disordered regions (IDRs) encoded by genes expressed in the GSE131928 dataset.
+- Integrate IDR information with single-cell gene expression data to investigate correlations between protein disorder and gene expression levels.
+- Compare IDR profiles between healthy and malignant cells to identify potential differences associated with the disease state.
+- Investigate the biological functions of genes encoding intrinsically disordered proteins and evaluate their potential roles in cancer through functional enrichment analysis.
+
 
 ## Repository Organization
 ```text
@@ -45,10 +44,10 @@ scRNAseq-IDR-Glioblastoma
 │
 ├── scripts
 │   ├── 01_Single_cell_RNA_seq_with_CNA_filtration.R
-│   ├── 02_Differential_expression_analysis.R
-│   ├── 03_Gene_filtration.R
-│   ├── 04_Conversion_adult_to_IDR_percentage.R
-│   ├── 05_Conversion_pediatric_to_IDR_percentage.R
+│   ├── 02_Gene_filtration.R
+│   ├── 03_Conversion_adult_to_IDR_percentage.R
+│   ├── 04_Conversion_pediatric_to_IDR_percentage.R
+│   ├── 05_
 │   ├── 06_
 │   ├── 07_
 │   ├── 08_
