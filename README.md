@@ -5,9 +5,17 @@
 ---
 ## Overview
 
-This repository presents an end-to-end computational workflow for integrating single-cell transcriptomic profiles with protein intrinsic disorder annotations in glioblastoma.
+This repository provides an end-to-end computational workflow integrating single-cell RNA sequencing (scRNA-seq) data with protein intrinsic disorder annotations to investigate the role of intrinsically disordered proteins (IDPs) and intrinsically disordered regions (IDRs) in glioblastoma.
 
-The workflow combines single-cell RNA sequencing (scRNA-seq), protein structural annotation, statistical analyses, and functional enrichment to investigate the contribution of intrinsically disordered proteins (IDPs) and intrinsically disordered regions (IDRs) to glioblastoma biology.
+The workflow combines:
+- single-cell transcriptomic analysis,
+- malignant cell identification,
+- differential gene expression analysis,
+- protein annotation,
+- IDR characterization,
+- and functional enrichment analysis.
+
+The objective is to integrate transcriptomic and protein structural information to identify disorder-associated molecular signatures in glioblastoma.
 
 
 ## Biological Motivation
@@ -56,12 +64,12 @@ scRNAseq-IDR-Glioblastoma
 │
 ├── results
 │   ├── single_cell_analysis
-│   │   ├── quality_control/
-│   │   ├── variable_features/
-│   │   ├── PCA/
-│   │   ├── UMAP/
-│   │   ├── tSNE/
-│   │   └── malignant_cells/
+│   │   ├── quality_control
+│   │   ├── variable_features
+│   │   ├── PCA
+│   │   ├── UMAP
+│   │   ├── tSNE
+│   │   └── malignant_cells
 │   ├── differential_expression
 │   │   ├── adult_vs_pediatric.csv
 │   ├── gene_filtration
@@ -94,9 +102,10 @@ scRNAseq-IDR-Glioblastoma
 - Import expression matrix
 - Metadata integration
 - Quality control
-- Cell filtering using CNA method and malignant cell identification
+- Identification of malignant cells using CNA-based approach
 - Feature selection
 - Scaling
+  
 
 ### 2.Downstream analysis
 - Linear Dimensionality Reduction (PCA)
@@ -107,24 +116,29 @@ scRNAseq-IDR-Glioblastoma
 
 ### 3. Gene filtration
 
-Gene filtration based on age_group feature (adult and pediatric).
+Differentially expressed genes are separated according to patient age groups:
+
+- Adult glioblastoma
+- Pediatric glioblastoma
 
 ### 4. Protein Annotation
 
-Gene symbols are converted into UniProt identifiers.
+Gene symbols are converted into UniProt identifiers using Ensembl BioMart.
 
-Protein characteristics include
+Protein information retrieved:
 
-- protein length
+- UniProt accession IDs
+- Protein length
+- Protein sequences
 
 ### 5. Intrinsic Disorder Annotation
 
 Protein disorder annotations are retrieved from MobiDB.
 
 For each protein:
-- number of IDRs
-- total IDR length
-- percentage disorder
+- Number of IDRs
+- Total IDR length
+- Percentage disorder
 ## Installation
 
 Clone the repository:
