@@ -10,7 +10,7 @@ This repository provides an end-to-end computational workflow integrating single
 The workflow combines:
 - single-cell transcriptomic analysis,
 - malignant cell identification,
-- differential gene expression analysis,
+- Pseudobulk differential gene expression analysis,
 - protein annotation,
 - IDR characterization,
 - and functional enrichment analysis.
@@ -38,73 +38,60 @@ This project integrates transcriptomic and structural information to identify di
 
 - Identify proteins containing intrinsically disordered regions (IDRs) encoded by genes expressed in the GSE131928 dataset.
 - Integrate IDR information with single-cell gene expression data to investigate correlations between protein disorder and gene expression levels.
-- Compare IDR profiles between healthy and malignant cells to identify potential differences associated with the disease state.
+- Compare IDR profiles between adult and pediatric age group to identify potential differences associated with the disease state.
 - Investigate the biological functions of genes encoding intrinsically disordered proteins and evaluate their potential roles in cancer through functional enrichment analysis.
 
 
 ## Repository Organization
 ```text
-scRNAseq-IDR-Glioblastoma
+scRNAseq-IDR-Glioblastoma/
 │
-├── data
-│   ├── processed
-│   └── metadata
+├── data/
+│   ├── processed/
+│   └── metadata/
 │
-├── scripts
+├── scripts/
 │   ├── 01_Single_cell_RNA_seq_with_CNA_filtration.R
-│   ├── 02_Gene_filtration.R
-│   ├── 03_Conversion_adult_to_IDR_percentage.R
-│   ├── 04_Conversion_pediatric_to_IDR_percentage.R
-│   ├── 05_
+│   ├── 02_Pseudobulk_differential_expression_analysis.R
+│   ├── 03_Gene_filtration.R
+│   ├── 04_Conversion_adult_to_IDR_percentage.R
+│   ├── 05_Conversion_pediatric_to_IDR_percentage.R
 │   ├── 06_
 │   ├── 07_
 │   ├── 08_
 │   ├── 09_
-│   └── 10_
+│   ├── 10_
+│   └── 11_
 │
-├── results
-│   ├── single_cell_analysis
-│   │   ├── malignant_cells
-│   │   │   ├── quality_control
-│   │   │   ├── variable_features
-│   │   │   ├── PCA
-│   │   │   ├── UMAP
-│   │   │   └── tSNE
+├── results/
+│   ├── single_cell_analysis_seq/
+│   │   ├── PCA_results/
+│   │   └── Plots/
+│   │
+│   ├── differential_expression/
+│   │   ├── Files/
+│   │   │   ├── DE_pseudobulk_patient_limma_DEGs.csv
+│   │   │   └── DE_pseudobulk_patient_limma_full.csv
 │   │   │
-│   │   └── normal_cells
-│   │       ├── quality_control
-│   │       ├── variable_features
-│   │       ├── PCA
-│   │       ├── UMAP
-│   │       └── tSNE
+│   │   └── plots/
+│   │       ├── Boxplot_limma_DEGs_logFC_0.5/
+│   │       ├── Density_limma_DEGs_logFC_0.5/
+│   │       ├── PCA_plot_DE_limma_logFC_0.5/
+│   │       └── Volcano_plot_DE_limma_logFC_0.5/
 │   │
-│   ├── differential_expression
-│   │   ├── malignant_cells
-│   │   │   └── adult_vs_pediatric.csv
-│   │   └── normal_cells
-│   │       └── adult_vs_pediatric.csv
+│   ├── gene_filtration/
+│   │   ├── DE_adult.csv
+│   │   └── DE_pediatric.csv
 │   │
-│   ├── gene_filtration
-│   │   ├── malignant_cells
-│   │   │   ├── adult_filtered_genes.csv
-│   │   │   └── pediatric_filtered_genes.csv
-│   │   └── normal_cells
-│   │       ├── adult_filtered_genes.csv
-│   │       └── pediatric_filtered_genes.csv
+│   ├── IDR_annotation/
+│   │   ├── IDR_protein_for_adult.csv
+│   │   └── IDR_protein_for_pediatric.csv
 │   │
-│   ├── IDR_annotation
-│   │   ├── malignant_cells
-│   │   │   ├── IDR_protein_for_adult.csv
-│   │   │   └── IDR_protein_for_pediatric.csv
-│   │   └── normal_cells
-│   │       ├── IDR_protein_for_adult.csv
-│   │       └── IDR_protein_for_pediatric.csv
-│   │
-│   └── figures
-│       └── workflows
+│   └── figures/
+│       └── workflows/
 │
-├── docs
-├── images
+├── docs/
+├── images/
 ├── README.md
 └── LICENSE
 ```
@@ -130,11 +117,10 @@ scRNAseq-IDR-Glioblastoma
   
 
 ### 2.Downstream analysis
-- Linear Dimensionality Reduction (PCA)
 - Cell Clustering
-- Cell annotation
+- Linear Dimensionality Reduction (PCA)
 - Non-linear Dimensionality Reduction (UMAP/ tSNE)
-- Differential expression analysis
+- Pseudobulk differential expression analysis
 
 ### 3. Gene filtration
 
@@ -175,12 +161,13 @@ cd scRNAseq-IDR-Glioblastoma
 | Package | Purpose |
 |----------|---------|
 | Seurat | Single-cell analysis |
-| SingleR | cell annotation |
 | EnsDb.Hsapiens.v86 | Provides human gene annotations. |
 | patchwork | Combines ggplot2 plots. |
-| SingleCellExperiment | Stores single-cell RNA-seq data. |
-| celldex | Provides reference datasets for cell annotation. |
-| EnhancedVolcano | Generates volcano plots for DE analysis. |
+|Matrix |Provides efficient dense and sparse matrix classes and operations for large-scale data analysis. |
+| Limma | Linear modeling and differential expression analysis for transcriptomic data. |
+| tibble | data frame format for data manipulation in R. |
+| ggrepel | Improves ggplot2 visualizations by preventing overlapping text labels. |
+| reshape2 | Provides tools for reshaping and transforming data between wide and long formats. |
 | dplyr | Data manipulation |
 | biomaRt | Gene annotation |
 | UniProt.ws | Protein annotation |
