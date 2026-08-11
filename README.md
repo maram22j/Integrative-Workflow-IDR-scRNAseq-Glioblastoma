@@ -74,10 +74,11 @@ scRNAseq-IDR-Glioblastoma/
 │   │   │   └── DE_pseudobulk_patient_limma_full.csv
 │   │   │
 │   │   └── plots/
-│   │       ├── Boxplot_limma_DEGs_logFC_0.5/
-│   │       ├── Density_limma_DEGs_logFC_0.5/
-│   │       ├── PCA_plot_DE_limma_logFC_0.5/
-│   │       └── Volcano_plot_DE_limma_logFC_0.5/
+│   │       ├── Boxplot_limma_DEGs_logFC_0.5
+│   │       ├── Density_limma_DEGs_logFC_0.5
+│   │       ├── PCA_plot_DE_limma_logFC_0.5
+│   │       ├── Volcano_plot_DE_limma_logFC_0.5
+│   │       └── Heatmap_limma_DEGs
 │   │
 │   ├── gene_filtration/
 │   │   ├── DE_adult.csv
