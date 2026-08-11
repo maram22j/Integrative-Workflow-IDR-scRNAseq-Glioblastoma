@@ -54,8 +54,8 @@ scRNAseq-IDR-Glioblastoma/
 │   ├── 01_Single_cell_RNA_seq_with_CNA_filtration.R
 │   ├── 02_Pseudobulk_differential_expression_analysis.R
 │   ├── 03_Gene_filtration.R
-│   ├── 04_Conversion_adult_to_IDR_percentage.R
-│   ├── 05_Conversion_pediatric_to_IDR_percentage.R
+│   ├── 04_IDR_conversion_adult.R
+│   ├── 05_IDR_conversion_pediatric.R
 │   ├── 06_
 │   ├── 07_
 │   ├── 08_
@@ -64,7 +64,7 @@ scRNAseq-IDR-Glioblastoma/
 │   └── 11_
 │
 ├── results/
-│   ├── single_cell_analysis_seq/
+│   ├── single_cell_analysis/
 │   │   ├── PCA_results/
 │   │   └── Plots/
 │   │
@@ -84,8 +84,25 @@ scRNAseq-IDR-Glioblastoma/
 │   │   └── DE_pediatric.csv
 │   │
 │   ├── IDR_annotation/
-│   │   ├── IDR_protein_for_adult.csv
-│   │   └── IDR_protein_for_pediatric.csv
+│   │   ├── adult/
+│   │   │   ├── AIUPred_files/
+│   │   │   │   ├── Binding_prediction/
+│   │   │   │   ├── disorder_prediction/
+│   │   │   │   ├── linker_protein/
+│   │   │   │   └── redox_state/
+│   │   │   │
+│   │   │   ├── FASTA_files/
+│   │   │   └── AIUPred_adult_results.csv
+│   │   │
+│   │   └── pediatric/
+│   │       ├── AIUPred_files/
+│   │       │   ├── Binding_prediction/
+│   │       │   ├── disorder_prediction/
+│   │       │   ├── linker_protein/
+│   │       │   └── redox_state/
+│   │       │
+│   │       ├── FASTA_files/
+│   │       └── AIUPred_pediatric_results.csv
 │   │
 │   └── figures/
 │       └── workflows/
@@ -138,15 +155,26 @@ Protein information retrieved:
 - UniProt accession IDs
 - Protein length
 - Protein sequences
+  
+The resulting UniProt identifiers are then used to retrieve the corresponding protein sequences, which are required for downstream intrinsic disorder prediction.
 
 ### 5. Intrinsic Disorder Annotation
 
-Protein disorder annotations are retrieved from MobiDB.
+Protein intrinsic disorder regions (IDRs) are annotated using AIUPred.
 
-For each protein:
-- Number of IDRs
-- Total IDR length
-- Percentage disorder
+For each protein, the following information is obtained:
+- Protein length
+- mean_score
+- disordered_residues
+- disorder_percentage
+
+The percentage of intrinsically disordered regions (IDR percentage) is calculated as:
+
+**IDR percentage = (Total IDR length / Protein length) × 100**
+
+This provides the proportion of each protein sequence predicted to correspond to intrinsically disordered regions.
+
+For proteins with multiple predicted IDR regions, the lengths of all identified IDR regions are summed to obtain the total IDR length before calculating the percentage.
 ## Installation
 
 Clone the repository:
@@ -174,17 +202,23 @@ cd scRNAseq-IDR-Glioblastoma
 | protti | Protein utilities |
 | ggplot2 | Visualization |
 | HGNChelper | Corrects and updates gene symbols. |
+|httr| Enables HTTP requests to retrieve data from web APIs.|
+|AIUPred| Predicts protein intrinsic disorder and disorder-related functional properties from protein sequences.|
+|Biostrings| Provides tools for efficient manipulation and analysis of biological sequences.|
+
 
 ## Outputs
+The workflow produces: 
 
-The workflow produces
-
-- Quality control graphs
+- Quality control plots
 - UMAP projections
-- Cluster annotations
-- Gene filtration tables
-- UniProt annotation tables
+- Differential expression and gene filtration tables
 - IDR annotation tables
+- Protein FASTA files
+- AIUPred prediction files
+- IDR percentage calculations
+- Downstream analysis plots and results
+  
 ## Citation
 
 If you use this workflow in your research, please cite this repository and the original GSE131928 dataset.
