@@ -197,6 +197,7 @@ cd scRNAseq-IDR-Glioblastoma
 | tibble | data frame format for data manipulation in R. |
 | ggrepel | Improves ggplot2 visualizations by preventing overlapping text labels. |
 | reshape2 | Provides tools for reshaping and transforming data between wide and long formats. |
+|pheatmap| Creates clustered heatmaps for visualizing gene expression patterns across samples or conditions.|
 | dplyr | Data manipulation |
 | biomaRt | Gene annotation |
 | UniProt.ws | Protein annotation |
@@ -206,6 +207,7 @@ cd scRNAseq-IDR-Glioblastoma
 |httr| Enables HTTP requests to retrieve data from web APIs.|
 |AIUPred| Predicts protein intrinsic disorder and disorder-related functional properties from protein sequences.|
 |Biostrings| Provides tools for efficient manipulation and analysis of biological sequences.|
+
 
 
 ## Outputs
