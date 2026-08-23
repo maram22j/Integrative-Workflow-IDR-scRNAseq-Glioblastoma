@@ -13,7 +13,8 @@ The workflow combines:
 - Pseudobulk differential gene expression analysis,
 - protein annotation,
 - IDR characterization,
-- and functional enrichment analysis.
+- functional enrichment analysis,
+- statistical tests.
 
 The objective is to integrate transcriptomic and protein structural information to identify disorder-associated molecular signatures in glioblastoma.
 
@@ -56,12 +57,9 @@ scRNAseq-IDR-Glioblastoma/
 │   ├── 03_Gene_filtration.R
 │   ├── 04_IDR_conversion_adult.R
 │   ├── 05_IDR_conversion_pediatric.R
-│   ├── 06_
-│   ├── 07_
-│   ├── 08_
-│   ├── 09_
-│   ├── 10_
-│   └── 11_
+│   ├── 06_adult_enrichement_analysis.R
+│   ├── 07_pediatric_enrichement_analysis.R
+│   └── 08_statistical test analysis.R
 │
 ├── results/
 │   ├── single_cell_analysis/
@@ -91,7 +89,6 @@ scRNAseq-IDR-Glioblastoma/
 │   │   │   │   ├── disorder_prediction/
 │   │   │   │   ├── linker_protein/
 │   │   │   │   └── redox_state/
-│   │   │   │
 │   │   │   ├── FASTA_files/
 │   │   │   └── AIUPred_adult_results.csv
 │   │   │
@@ -101,9 +98,56 @@ scRNAseq-IDR-Glioblastoma/
 │   │       │   ├── disorder_prediction/
 │   │       │   ├── linker_protein/
 │   │       │   └── redox_state/
-│   │       │
 │   │       ├── FASTA_files/
 │   │       └── AIUPred_pediatric_results.csv
+│   │
+│   ├── Enrichement analysis/
+│   │   ├── adult/
+│   │   │   ├── files/
+│   │   │   └── plots/
+│   │   │       ├── GO_enrichement_adult_barplot_biological_process
+│   │   │       ├── GO_enrichement_adult_barplot_cellular_component
+│   │   │       ├── GO_enrichement_biological_process
+│   │   │       ├── GO_enrichement_adult_cellular_component
+│   │   │       ├── Reactome_enrichement_adult_barplot
+│   │   │       ├── Reactome_enrichement_adult_dotplot
+│   │   │       ├── treeplot_BP_adult
+│   │   │       ├── treeplot_CC_adult
+│   │   │       └── STRING_network/
+│   │   │
+│   │   └── pediatric/
+│   │       ├── files/
+│   │       └── plots/
+│   │           ├── GO_enrichement_pediatric_barplot_biological_process
+│   │           ├── GO_enrichement_pediatric_barplot_cellular_component
+│   │           ├── GO_enrichement_pediatric_barplot_molecular_function
+│   │           ├── GO_enrichement_pediatric_biological_process
+│   │           ├── GO_enrichement_pediatric_cellular_component
+│   │           ├── GO_enrichement_pediatric_molecular_function
+│   │           ├── KEGG_pediatric
+│   │           ├── KEGG_barplot
+│   │           ├── Reactome_enrichement_pediatric_barplot
+│   │           ├── Reactome_enrichement_pediatric_dotplot
+│   │           ├── treeplot_BP_pediatric
+│   │           ├── treeplot_CC_pediatric
+│   │           ├── treeplot_MF_pediatric
+│   │           └── STRING_network/
+│   │
+│   ├── Statistical tests/
+│   │   ├── adult/
+│   │   │   ├── scatter plot between logFC and STRING degree
+│   │   │   ├── scatter plot between logFC and IDR percentage
+│   │   │   └── scatter plot of protein length vs IDR percentage
+│   │   │
+│   │   ├── pediatric/
+│   │   │   ├── scatter plot between logFC and STRING degree
+│   │   │   ├── scatter plot between logFC and IDR percentage
+│   │   │   └── scatter plot of protein length vs IDR percentage
+│   │   │
+│   │   └── plots/
+│   │       ├── Degree comparaison
+│   │       ├── IDR percentage comparaison
+│   │       └── length comparaison
 │   │
 │   └── figures/
 │       └── workflows/
@@ -171,11 +215,24 @@ For each protein, the following information is obtained:
 
 The percentage of intrinsically disordered regions (IDR percentage) is calculated as:
 
-**IDR percentage = (Total IDR length / Protein length) × 100**
+<p align=center>**IDR percentage = (Total IDR length / Protein length) × 100**</p>
 
 This provides the proportion of each protein sequence predicted to correspond to intrinsically disordered regions.
 
 For proteins with multiple predicted IDR regions, the lengths of all identified IDR regions are summed to obtain the total IDR length before calculating the percentage.
+### 6. Enrichement analysis
+For both adult and pediatric genes functional enrichement analysis was conducted:
+- Gene Ontology
+- Reactome
+- KEGG
+- STRING network analysis
+### 7. Statistical analysis
+Non-parametric tests were used to investigate relationships between gene expression, IDR properties, protein length, and STRING network degree.
+
+- Spearman correlation: logFC vs. IDR%, logFC vs. STRING degree, and protein length vs. IDR%.
+- Mann–Whitney U test: comparison of IDR%, protein length, and STRING degree between adult and pediatric groups.
+
+
 ## Installation
 
 Clone the repository:
@@ -207,8 +264,15 @@ cd scRNAseq-IDR-Glioblastoma
 |httr| Enables HTTP requests to retrieve data from web APIs.|
 |AIUPred| Predicts protein intrinsic disorder and disorder-related functional properties from protein sequences.|
 |Biostrings| Provides tools for efficient manipulation and analysis of biological sequences.|
-
-
+|clusterProfiler| perform functional enrichment analysis, including Gene Ontology (GO), KEGG, and pathway analysis of the identified gene sets.|
+|igraph| Network analysis and visualization, including PPI network construction and calculation of network metrics such as node degree.|
+|ggraph|Network visualization and graphical representation of protein–protein interaction (PPI) networks.|
+|ReactomePA|Reactome pathway enrichment analysis.|
+|ggtree| Visualization and annotation of biological trees and enrichment result relationships.|
+|pathview| Visualization of gene expression data on KEGG pathway diagrams.|
+|tidygraph|Tidy manipulation and analysis of graph/network data, including PPI networks and network topology.|
+|rstatix| Tidy statistical testing, including non-parametric tests and correlation analyses.|
+|ggpubr| Statistical data visualization, including boxplots, scatter plots, and publication-ready figures.|
 
 ## Outputs
 The workflow produces: 
