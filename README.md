@@ -5,7 +5,7 @@
 ---
 ## Overview
 
-This repository provides an end-to-end computational workflow integrating single-cell RNA sequencing (scRNA-seq) data with protein intrinsic disorder annotations to investigate the role of intrinsically disordered proteins (IDPs) and intrinsically disordered regions (IDRs) in glioblastoma.
+This repository provides an end-to-end computational workflow integrating single-cell RNA sequencing (scRNA-seq) data with protein intrinsic disorder annotations to investigate the role of intrinsically disordered regions (IDRs) in glioblastoma.
 
 The workflow combines:
 - single-cell transcriptomic analysis,
@@ -179,8 +179,8 @@ scRNAseq-IDR-Glioblastoma/
   
 
 ### 2.Downstream analysis
-- Cell Clustering
 - Linear Dimensionality Reduction (PCA)
+- Cell Clustering
 - Non-linear Dimensionality Reduction (UMAP/ tSNE)
 - Pseudobulk differential expression analysis
 
@@ -306,7 +306,7 @@ Industrial Biology Engineering Student
 
 National Institute of Applied Science and Technology (INSAT)
 
-Tunisia
+TUNISIA
 
 Email: maram.nhaili@insat.ucar.tn
 
